@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WAF Simulator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h1>🛡️ Web Application Firewall Simulator</h1>
+
+  <form method="POST">
+    <input type="text" name="input" placeholder="Enter request payload..." required>
+    <button type="submit">Analyze</button>
+  </form>
+
+  {% if result %}
+    <div class="result {{ 'danger' if result != 'Safe Request' else 'safe' }}">
+      {{ result }}
+    </div>
+  {% endif %}
+</div>
+
+</body>
+</html>
